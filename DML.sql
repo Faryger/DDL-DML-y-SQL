@@ -33,10 +33,10 @@ SELECT nombre,precio FROM producto;
 SELECT * FROM producto;
 
 -- 4. Lista el nombre de los productos, el precio en euros y el precio en dólares estadounidenses (USD).
-SELECT Nombre, Precio AS "Euros", ROUND(Precio * 1.1) AS "USD" FROM Producto;
+SELECT Nombre, Precio AS "Euros",(Precio * 1.1) AS "USD" FROM Producto;
 
 -- 5. Lista el nombre de los productos, el precio en euros y el precio en dólares estadounidenses (USD). Utiliza los siguientes alias para las columnas: nombre de producto, euros, dólares
-SELECT Nombre AS "nombre de producto", precio AS "Euros", ROUND(Precio * 1.1) AS "USD" FROM Producto;
+SELECT Nombre AS "nombre de producto", precio AS "Euros",(Precio * 1.1) AS "USD" FROM Producto;
 
 -- 6. Lista los nombres y los precios de todos los productos de la tabla producto, convirtiendo los nombres a mayúscula.
 SELECT UPPER(Nombre) AS "NOMBRE" ,precio FROM producto;
@@ -84,7 +84,29 @@ SELECT Nombre,Precio FROM Producto ORDER BY Nombre DESC, Precio DESC LIMIT 1;
 SELECT Nombre,Codigo_fabricante FROM Producto ORDER BY Codigo_fabricante ASC LIMIT 2,2;
 
 -- 21. Lista el nombre de los productos que tienen un precio menor o igual a 120€.
+SELECT Nombre FROM Producto WHERE Precio <= 120;
 
+-- 22. Lista el nombre de los productos que tienen un precio mayor o igual a 400€.
+SELECT Nombre FROM Producto WHERE Precio >=400;
 
+-- 23. Lista el nombre de los productos que no tienen un precio mayor o igual a 400€
+SELECT Nombre FROM producto WHERE Precio <400;
+
+-- 24. Lista todos los productos que tengan un precio entre 80€ y 300€. Sin utilizar el operador BETWEEN
+SELECT Nombre,Precio FROM Producto WHERE Precio >= 80 AND Precio <=300;
+
+-- 25. Lista todos los productos que tengan un precio entre 60€ y 200€. Utilizando el operador BETWEEN.
+SELECT Nombre,Precio FROM Producto WHERE Precio BETWEEN 60 AND 200;
+
+-- 26. Lista todos los productos que tengan un precio mayor que 200€ y que el identificador de fabricante sea igual a 6.
+SELECT Nombre,Precio FROM Producto WHERE Precio > 200 AND Codigo_fabricante = 6;
+
+-- 27. Lista todos los productos donde el identificador de fabricante sea 1, 3 o 5. Sin utilizar el operador IN.
+SELECT Nombre,Codigo_fabricante FROM Producto WHERE Codigo_fabricante = 1 OR Codigo_fabricante = 3 OR Codigo_fabricante = 5;
+
+-- 28. Lista todos los productos donde el identificador de fabricante sea 1, 3 o 5. Utilizando el operador IN.
+SELECT Nombre,Codigo_fabricante FROM Producto WHERE Codigo_fabricante IN (1, 3, 5);
+
+-- 29. Lista el nombre y el precio de los productos en céntimos (Habrá que multiplicar por 100 el valor del precio). Cree un alias para la columna que contiene el precio que se llame céntimos.
 
 
