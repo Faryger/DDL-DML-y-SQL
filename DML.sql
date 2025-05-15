@@ -81,6 +81,10 @@ SELECT Nombre,Precio FROM Producto ORDER BY Nombre ASC,Precio ASC LIMIT 1;
 SELECT Nombre,Precio FROM Producto ORDER BY Nombre DESC, Precio DESC LIMIT 1;
 
 -- 20. Lista el nombre de todos los productos del fabricante cuyo identificador de fabricante es igual a 2.
-SELECT Nombre 
+SELECT Nombre,Codigo_fabricante FROM Producto ORDER BY Codigo_fabricante ASC LIMIT 2,2;
+
+-- 21. Lista el nombre de los productos que tienen un precio menor o igual a 120€.
+
+
 
 
