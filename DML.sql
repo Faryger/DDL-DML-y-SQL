@@ -93,20 +93,42 @@ SELECT Nombre FROM Producto WHERE Precio >=400;
 SELECT Nombre FROM producto WHERE Precio <400;
 
 -- 24. Lista todos los productos que tengan un precio entre 80€ y 300€. Sin utilizar el operador BETWEEN
-SELECT Nombre,Precio FROM Producto WHERE Precio >= 80 AND Precio <=300;
+SELECT * FROM Producto WHERE Precio >= 80 AND Precio <=300;
 
 -- 25. Lista todos los productos que tengan un precio entre 60€ y 200€. Utilizando el operador BETWEEN.
-SELECT Nombre,Precio FROM Producto WHERE Precio BETWEEN 60 AND 200;
+SELECT  * FROM Producto WHERE Precio BETWEEN 60 AND 200;
 
 -- 26. Lista todos los productos que tengan un precio mayor que 200€ y que el identificador de fabricante sea igual a 6.
-SELECT Nombre,Precio FROM Producto WHERE Precio > 200 AND Codigo_fabricante = 6;
+SELECT * FROM Producto WHERE Precio > 200 AND Codigo_fabricante = 6;
 
 -- 27. Lista todos los productos donde el identificador de fabricante sea 1, 3 o 5. Sin utilizar el operador IN.
-SELECT Nombre,Codigo_fabricante FROM Producto WHERE Codigo_fabricante = 1 OR Codigo_fabricante = 3 OR Codigo_fabricante = 5;
+SELECT * FROM Producto WHERE Codigo_fabricante = 1 OR Codigo_fabricante = 3 OR Codigo_fabricante = 5;
 
 -- 28. Lista todos los productos donde el identificador de fabricante sea 1, 3 o 5. Utilizando el operador IN.
-SELECT Nombre,Codigo_fabricante FROM Producto WHERE Codigo_fabricante IN (1, 3, 5);
+SELECT * FROM Producto WHERE Codigo_fabricante IN (1, 3, 5);
 
 -- 29. Lista el nombre y el precio de los productos en céntimos (Habrá que multiplicar por 100 el valor del precio). Cree un alias para la columna que contiene el precio que se llame céntimos.
+SELECT Nombre, Precio * 100 AS céntimos FROM Producto;
+
+-- 30. Lista los nombres de los fabricantes cuyo nombre empiece por la letra S.
+SELECT Nombre FROM Fabricante WHERE Nombre LIKE "s%";
+
+-- 31. Lista los nombres de los fabricantes cuyo nombre termine por la vocal e.
+SELECT Nombre FROM Fabricante WHERE Nombre LIKE "%e";
+
+-- 32. Lista los nombres de los fabricantes cuyo nombre contenga el carácter w.
+SELECT Nombre FROM Fabricante WHERE Nombre LIKE "%w%";
+
+-- 33. Lista los nombres de los fabricantes cuyo nombre sea de 4 caracteres.
+SELECT Nombre FROM Fabricante WHERE LENGTH(Nombre) = 4;
+
+-- 34. Devuelve una lista con el nombre de todos los productos que contienen la cadena Portátil en el nombre.
+SELECT Nombre FROM Producto WHERE Nombre LIKE "%Portatil%";
+
+-- 35. Devuelve una lista con el nombre de todos los productos que contienen la cadena Monitor en el nombre y tienen un precio inferior a 215 €.
+SELECT Nombre FROM Producto WHERE Precio < 215 AND Nombre LIKE "%Monitor%"; 
+
+-- 36. Lista el nombre y el precio de todos los productos que tengan un precio mayor o igual a 180€. Ordene el resultado en primer lugar por el precio (en orden descendente) y en segundo lugar por el nombre (en orden ascendente).
+SELECT Nombre, Precio FROM Producto WHERE Precio >= 180 ORDER BY Precio DESC,Nombre ASC;
 
 
