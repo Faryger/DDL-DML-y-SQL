@@ -17,3 +17,4 @@ ALTER TABLE Producto
 ADD FOREIGN KEY (Codigo_fabricante) REFERENCES Fabricante (Codigo);
 
 #Prueba
+
